@@ -1,0 +1,1 @@
+Device tree for Huawei Y5 (Y560-L01)
