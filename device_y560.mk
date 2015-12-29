@@ -18,7 +18,7 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
 	ro.adb.secure=0 \
 	persist.service.adb.enable=1
 
-# Enable adb during bootup
+# Enable adb during bootup (Doesn't seem to work..)
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     mtp,adb
 
@@ -88,6 +88,9 @@ PRODUCT_COPY_FILES += \
 # gps/location secuity configuration file
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilts/sec_config:system/etc/sec_config
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilts/thermal-engine-8909.conf:system/etc/thermal-engine-8909.conf
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/gps/flp.conf:system/etc/flp.conf \
