@@ -26,8 +26,8 @@ ARCH_ARM_HAVE_TLS_REGISTER := true
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x3F ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 earlyprintk
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_PAGESIZE := 2048
-TARGET_KERNEL_SOURCE := ../kernel/huawei/msm8909
-TARGET_KERNEL_CONFIG := y560_defconfig
+#TARGET_KERNEL_SOURCE := ../kernel/huawei/msm8909
+#TARGET_KERNEL_CONFIG := y560_defconfig
 TARGET_PREBUILT_KERNEL := device/huawei/y560/kernel
 BOARD_MKBOOTIMG_ARGS := --dt device/huawei/y560/dt.img
 
