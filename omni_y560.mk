@@ -24,7 +24,8 @@ $(call inherit-product, vendor/omni/config/gsm.mk)
 $(call inherit-product, vendor/omni/config/common.mk)
 
 # Bootanimation
-TARGET_BOOTANIMATION_SIZE := 480x854
+TARGET_SCREEN_HEIGHT := 854
+TARGET_SCREEN_WIDTH  := 480
 
 # Device identifier. This must come after all inclusions
 PRODUCT_NAME := omni_y560
