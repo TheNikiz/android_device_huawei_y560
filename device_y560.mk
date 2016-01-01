@@ -146,6 +146,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libcnefeatureconfig
 
+# Cryptfs_hw
+PRODUCT_PACKAGES += \
+	libcryptfs_hw
+
 # Filesystem management tools
 PRODUCT_PACKAGES += \
     make_ext4fs \
