@@ -16,6 +16,8 @@ TARGET_BOARD_PLATFORM_GPU := qcom-adreno306
 
 # Architecture
 TARGET_ARCH := arm
+TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
+TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_ARCH_VARIANT := armv7-a-neon
@@ -24,11 +26,11 @@ TARGET_CPU_SMP := true
 ARCH_ARM_HAVE_TLS_REGISTER := true
 
 # Kernel
-BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x3F ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 earlyprintk
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x3F ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 earlyprintk
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_PAGESIZE := 2048
-#TARGET_KERNEL_SOURCE := ../kernel/huawei/msm8909
-#TARGET_KERNEL_CONFIG := msm8909-1gb_defconfig
+#TARGET_KERNEL_SOURCE := ../kernel/huawei/msm-3.10
+#TARGET_KERNEL_CONFIG := y560_defconfig
 TARGET_PREBUILT_KERNEL := device/huawei/y560/kernel
 BOARD_MKBOOTIMG_ARGS := --dt device/huawei/y560/dt.img
 
@@ -56,19 +58,12 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/
 
 # Recovery
 BOARD_HAS_NO_SELECT_BUTTON := true
-TARGET_RECOVERY_FSTAB = device/huawei/y560/twrp.fstab
+TARGET_RECOVERY_FSTAB = device/huawei/y560/recovery.fstab
+BOARD_CUSTOM_RECOVERY_UI := ../../device/huawei/y560/recovery/qcom_recovery_ui.c
 TARGET_RECOVERY_PIXEL_FORMAT := RGB_565
 BOARD_SUPPRESS_SECURE_ERASE := true
-
-# TWRP
-HAVE_SELINUX := true
-DEVICE_RESOLUTION := 480x854
-TW_NO_EXFAT_FUSE := true
-TW_INTERNAL_STORAGE_PATH := "/data/media"
-TW_INTERNAL_STORAGE_MOUNT_POINT := "data"
-TW_EXTERNAL_STORAGE_PATH := "/external_sd"
-TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
-RECOVERY_SDCARD_ON_DATA := true
+BOARD_HAS_LARGE_FILESYSTEM := true
+BOARD_RECOVERY_HANDLES_MOUNT := true
 
 # Vendor Init
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/

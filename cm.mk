@@ -14,23 +14,19 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Inherit Omni GSM telephony parts
-$(call inherit-product, vendor/omni/config/gsm.mk)
-
-# Inherit from the common Open Source product configuration
-$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
-
-# Inherit from our omni product configuration
-$(call inherit-product, vendor/omni/config/common.mk)
+# Inherit some common CM stuff.
+$(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
 # Bootanimation
-TARGET_BOOTANIMATION_SIZE := 480x854
+# Boot animation
+TARGET_SCREEN_HEIGHT := 854
+TARGET_SCREEN_WIDTH := 480
 
 # Inherit device configuration
-$(call inherit-product, device/huawei/y560/device.mk)
+$(call inherit-product, device/huawei/y560/device_y560.mk)
 
 # Device identifier. This must come after all inclusions
-PRODUCT_NAME := omni_y560
+PRODUCT_NAME := cm_y560
 PRODUCT_DEVICE := y560
 PRODUCT_BRAND := HUAWEI
 PRODUCT_MANUFACTURER := HUAWEI
